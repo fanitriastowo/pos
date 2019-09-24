@@ -10,6 +10,7 @@
 
     </head>
     <body>
+        <h3>this is rendered from native html</h3>
         <div id="app"></div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
