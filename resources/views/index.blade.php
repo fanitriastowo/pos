@@ -7,11 +7,13 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     </head>
     <body>
-        <h3>this is rendered from native html</h3>
-        <div id="app"></div>
+        <div class="container">
+            <div id="app"></div>
+        </div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
