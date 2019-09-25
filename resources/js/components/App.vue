@@ -5,7 +5,13 @@
             v-for="crud in cruds"
             v-bind="crud"
             :key="crud.id"
+            @update="update"
+            @delete="del"
             ></crud-component>
+
+        <div>
+            <button @click="create()">Add</button>
+        </div>
     </div>
 </template>
 <script>
@@ -21,10 +27,16 @@
     data() {
       return {
         cruds: [],
-        working: false
       }
     },
     methods: {
+      create() {
+        this.mute = true;
+        window.axios.get('/api/cruds/create').then(({ data }) => {
+          this.cruds.push(new Crud(data));
+          this.mute = false;
+        });
+      },
       read() {
         this.mute = true;
         window.axios.get('/api/cruds').then(({ data }) => {
@@ -33,6 +45,26 @@
           });
         });
       },
+      update(id, color) {
+        this.mute = true;
+        window.axios.put(`/api/cruds/${id}`, { color }).then(() => {
+          this.cruds.find(crud => crud.id === id).color = color;
+          this.mute = false;
+        });
+      },
+      del(id) {
+        this.mute = true;
+        window.axios.delete(`/api/cruds/${id}`).then(() => {
+          let index = this.cruds.findIndex(crud => crud.id === id);
+          this.cruds.splice(index, 1);
+          this.mute = false;
+        });
+      }
+    },
+    watch: {
+      mute(val) {
+        document.getElementById('mute').className = val ? "on" : "";
+      }
     },
     components: {
       CrudComponent
@@ -42,3 +74,8 @@
     }
   }
 </script>
+<style>
+    #app {
+        margin-left: 1em;
+    }
+</style>

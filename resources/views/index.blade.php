@@ -12,6 +12,7 @@
     </head>
     <body>
         <div class="container">
+            <div id="mute"></div>
             <div id="app"></div>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
