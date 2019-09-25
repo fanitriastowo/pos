@@ -7,14 +7,30 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+        <style>
+        html, body {
+            margin: 0;
+            padding: 0;,
+            height: 100%;
+            width: 100%;
+            background-color: #d1d1d1
+        }
+        #mute {
+            position: absolute;
+        }
+        #mute.on {
+            opacity: 0.7;
+            z-index: 1000;
+            background: white;
+            height: 100%;
+            width: 100%;
+        }
+        </style>
     </head>
     <body>
-        <div class="container">
-            <div id="mute"></div>
-            <div id="app"></div>
-        </div>
+        <div id="mute"></div>
+        <div id="app"></div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

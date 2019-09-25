@@ -1,6 +1,8 @@
 <template>
     <div id="app">
-        <h3>list of data</h3>
+        <div class="heading">
+            <h1>Cruds</h1>
+        </div>
         <crud-component
             v-for="crud in cruds"
             v-bind="crud"
@@ -27,6 +29,7 @@
     data() {
       return {
         cruds: [],
+        working: false
       }
     },
     methods: {
@@ -77,5 +80,9 @@
 <style>
     #app {
         margin-left: 1em;
+    }
+
+    .heading h1 {
+        margin-bottom: 0;
     }
 </style>

@@ -1714,6 +1714,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 function Crud(_ref) {
   var id = _ref.id,
       color = _ref.color,
@@ -1727,7 +1729,8 @@ function Crud(_ref) {
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      cruds: []
+      cruds: [],
+      working: false
     };
   },
   methods: {
@@ -6307,7 +6310,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#app {\n    margin-left: 1em;\n}\n", ""]);
+exports.push([module.i, "\n#app {\n    margin-left: 1em;\n}\n.heading h1 {\n    margin-bottom: 0;\n}\n", ""]);
 
 // exports
 
@@ -37842,7 +37845,7 @@ var render = function() {
     "div",
     { attrs: { id: "app" } },
     [
-      _c("h3", [_vm._v("list of data")]),
+      _vm._m(0),
       _vm._v(" "),
       _vm._l(_vm.cruds, function(crud) {
         return _c(
@@ -37873,7 +37876,14 @@ var render = function() {
     2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "heading" }, [_c("h1", [_vm._v("Cruds")])])
+  }
+]
 render._withStripped = true
 
 
@@ -37901,7 +37911,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "col-2" }, [
-      _c("p", [_vm._v("Name: " + _vm._s(_vm._f("properCase")(_vm.name)))]),
+      _c("h3", [_vm._v("Name: " + _vm._s(_vm._f("properCase")(_vm.name)))]),
       _vm._v(" "),
       _c(
         "select",

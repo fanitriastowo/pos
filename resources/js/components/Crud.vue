@@ -4,7 +4,7 @@
             <img :src="image"/>
         </div>
         <div class="col-2">
-            <p>Name: {{ name | properCase }}</p>
+            <h3>Name: {{ name | properCase }}</h3>
             <select @change="update">
                 <option
                         v-for="col in [ 'red', 'green' ]"
