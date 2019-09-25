@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="app">
         <h3>list of data</h3>
         <crud-component
             v-for="crud in cruds"
